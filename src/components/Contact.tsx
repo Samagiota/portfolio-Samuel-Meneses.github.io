@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Mail, Github, Linkedin, MapPin } from 'lucide-react';
 
@@ -24,8 +25,8 @@ const Contact = () => {
                 <Mail size={20} className="text-vintage-brown mr-4" />
                 <div>
                   <p className="font-courier text-sm text-vintage-brown">Email</p>
-                  <a href="mailto:samuel@example.com" className="font-oldstandard hover:text-vintage-dark-brown transition-colors">
-                    samuel@example.com
+                  <a href="mailto:sanmeneses.developer@gmail.com" className="font-oldstandard hover:text-vintage-dark-brown transition-colors">
+                    sanmeneses.developer@gmail.com
                   </a>
                 </div>
               </div>
@@ -34,7 +35,7 @@ const Contact = () => {
                 <MapPin size={20} className="text-vintage-brown mr-4" />
                 <div>
                   <p className="font-courier text-sm text-vintage-brown">Location</p>
-                  <p className="font-oldstandard">São Paulo, Brazil</p>
+                  <p className="font-oldstandard">Imperatriz, Maranhão, Brazil</p>
                 </div>
               </div>
             </div>
@@ -133,3 +134,4 @@ const Contact = () => {
 };
 
 export default Contact;
+
