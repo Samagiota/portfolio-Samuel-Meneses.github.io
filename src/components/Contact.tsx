@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { Mail, GitHub, Linkedin, MapPin } from 'lucide-react';
+import { Mail, Github, Linkedin, MapPin } from 'lucide-react';
 
 const Contact = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -53,7 +52,7 @@ const Contact = () => {
                   className="p-3 bg-vintage-accent/20 rounded-full text-vintage-dark-brown hover:bg-vintage-brown hover:text-white transition-colors duration-200"
                   aria-label="GitHub profile"
                 >
-                  <GitHub size={20} />
+                  <Github size={20} />
                 </a>
                 <a 
                   href="#" 
