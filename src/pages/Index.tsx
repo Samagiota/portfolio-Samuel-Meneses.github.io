@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
 import About from '../components/About';
@@ -9,6 +9,9 @@ import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 
 const Index = () => {
+  // We would typically use a context provider for language state in a larger app
+  const [language, setLanguage] = useState('en');
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
