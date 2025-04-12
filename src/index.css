@@ -44,38 +44,78 @@
     --vintage-accent: 30 20% 72%;
   }
 
+  .dark {
+    --background: 20 10% 10%;
+    --foreground: 60 20% 95%;
+
+    --card: 20 10% 10%;
+    --card-foreground: 60 20% 95%;
+
+    --popover: 20 10% 10%;
+    --popover-foreground: 60 20% 95%;
+
+    --primary: 25 25% 42%;
+    --primary-foreground: 60 20% 95%;
+
+    --secondary: 20 5% 25%;
+    --secondary-foreground: 60 20% 95%;
+
+    --muted: 20 5% 25%;
+    --muted-foreground: 20 5% 65%;
+
+    --accent: 20 5% 25%;
+    --accent-foreground: 60 20% 95%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 60 20% 95%;
+
+    --border: 20 5% 25%;
+    --input: 20 5% 25%;
+    --ring: 25 25% 42%;
+
+    --vintage-paper: 0 0% 15%;
+    --vintage-brown: 0 0% 30%;
+    --vintage-dark-brown: 0 0% 40%;
+    --vintage-text: 0 0% 90%;
+    --vintage-accent: 0 0% 35%;
+  }
+
   * {
     @apply border-border;
   }
 
   body {
-    @apply bg-vintage-paper text-vintage-text;
+    @apply bg-vintage-paper text-vintage-text transition-colors duration-300;
     background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23e2d1c3' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+  }
+
+  .dark body {
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23444444' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
   }
 }
 
 @layer components {
   .vintage-card {
-    @apply bg-white/80 border border-vintage-brown/30 shadow-md p-6 rounded-sm;
+    @apply bg-white/80 dark:bg-gray-800/80 border border-vintage-brown/30 dark:border-gray-700/50 shadow-md p-6 rounded-sm;
   }
   
   .vintage-button {
-    @apply bg-vintage-brown text-white font-courier py-2 px-6 rounded-sm border border-vintage-dark-brown hover:bg-vintage-dark-brown transition-colors duration-300 shadow-sm;
+    @apply bg-vintage-brown dark:bg-gray-700 text-white font-courier py-2 px-6 rounded-sm border border-vintage-dark-brown dark:border-gray-600 hover:bg-vintage-dark-brown dark:hover:bg-gray-600 transition-colors duration-300 shadow-sm;
   }
   
   .vintage-input {
-    @apply bg-white/70 border border-vintage-brown/50 rounded-sm py-2 px-4 font-courier focus:outline-none focus:ring-1 focus:ring-vintage-dark-brown focus:border-vintage-dark-brown;
+    @apply bg-white/70 dark:bg-gray-800/70 border border-vintage-brown/50 dark:border-gray-700/50 rounded-sm py-2 px-4 font-courier focus:outline-none focus:ring-1 focus:ring-vintage-dark-brown dark:focus:ring-gray-600 focus:border-vintage-dark-brown dark:focus:border-gray-600;
   }
   
   .section-title {
-    @apply font-courier text-3xl md:text-4xl font-bold text-vintage-dark-brown mb-8 inline-block relative after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-vintage-brown after:bottom-0 after:left-0;
+    @apply font-courier text-3xl md:text-4xl font-bold text-vintage-dark-brown dark:text-gray-300 mb-8 inline-block relative after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-vintage-brown dark:after:bg-gray-600 after:bottom-0 after:left-0;
   }
   
   .typewriter {
-    @apply overflow-hidden whitespace-nowrap border-r-4 border-vintage-dark-brown animate-typewriter;
+    @apply overflow-hidden whitespace-nowrap border-r-4 border-vintage-dark-brown dark:border-gray-400 animate-typewriter;
   }
   
   .code-tag {
-    @apply font-courier text-sm px-2 py-1 rounded-sm bg-vintage-brown/20 text-vintage-dark-brown;
+    @apply font-courier text-sm px-2 py-1 rounded-sm bg-vintage-brown/20 dark:bg-gray-700/40 text-vintage-dark-brown dark:text-gray-300;
   }
 }

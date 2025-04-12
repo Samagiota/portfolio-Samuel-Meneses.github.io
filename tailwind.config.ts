@@ -65,10 +65,15 @@ export default {
 				},
 				vintage: {
 					'paper': '#F5F5F0',
+					'paper-dark': '#2A2A2A',
 					'brown': '#E2D1C3',
+					'brown-dark': '#5A5A5A',
 					'dark-brown': '#A89382',
+					'dark-brown-dark': '#707070',
 					'text': '#3A3A3A',
-					'accent': '#C8B6A6'
+					'text-dark': '#E5E5E5',
+					'accent': '#C8B6A6',
+					'accent-dark': '#6A6A6A'
 				}
 			},
 			fontFamily: {

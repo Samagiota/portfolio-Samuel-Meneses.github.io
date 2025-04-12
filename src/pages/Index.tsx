@@ -7,6 +7,8 @@ import Projects from '../components/Projects';
 import Skills from '../components/Skills';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
+import ThemeToggle from '../components/ThemeToggle';
+import { ThemeProvider } from '../contexts/ThemeContext';
 
 // Create a language context to share the language state across components
 export type LanguageType = 'en' | 'pt-BR';
@@ -26,19 +28,22 @@ const Index = () => {
   const [language, setLanguage] = useState<LanguageType>('en');
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage }}>
-      <div className="min-h-screen flex flex-col">
-        <Header />
-        <main className="flex-grow">
-          <Hero />
-          <About />
-          <Projects />
-          <Skills />
-          <Contact />
-        </main>
-        <Footer />
-      </div>
-    </LanguageContext.Provider>
+    <ThemeProvider>
+      <LanguageContext.Provider value={{ language, setLanguage }}>
+        <div className="min-h-screen flex flex-col">
+          <Header />
+          <main className="flex-grow">
+            <Hero />
+            <About />
+            <Projects />
+            <Skills />
+            <Contact />
+          </main>
+          <Footer />
+          <ThemeToggle />
+        </div>
+      </LanguageContext.Provider>
+    </ThemeProvider>
   );
 };
 
