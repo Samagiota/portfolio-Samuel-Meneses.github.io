@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { useLanguage } from '../pages/Index';
 
 type Skill = {
   name: string;
@@ -32,31 +33,70 @@ const SkillBar: React.FC<{ name: string; level: number; icon: string }> = ({ nam
 };
 
 const Skills = () => {
+  const { language } = useLanguage();
+
+  const translations = {
+    en: {
+      title: "My Skills",
+      frontend: "Frontend",
+      design: "Design",
+      additionalSkills: "Additional Skills",
+      skills: {
+        frontend: [
+          { name: "HTML5", level: 95, icon: "html" },
+          { name: "CSS3", level: 90, icon: "css" },
+          { name: "JavaScript", level: 75, icon: "js" },
+          { name: "Responsive Design", level: 85, icon: "responsive" }
+        ],
+        design: [
+          { name: "UI/UX", level: 80, icon: "ui" },
+          { name: "Figma", level: 70, icon: "figma" },
+          { name: "Photoshop", level: 65, icon: "ps" },
+          { name: "Typography", level: 85, icon: "type" }
+        ],
+        additional: ["SEO Basics", "Performance Optimization", "Cross-browser Compatibility", "Version Control (Git)", "Accessibility", "CSS Animations", "CSS Grid", "Flexbox"]
+      }
+    },
+    'pt-BR': {
+      title: "Minhas Habilidades",
+      frontend: "Frontend",
+      design: "Design",
+      additionalSkills: "Habilidades Adicionais",
+      skills: {
+        frontend: [
+          { name: "HTML5", level: 95, icon: "html" },
+          { name: "CSS3", level: 90, icon: "css" },
+          { name: "JavaScript", level: 75, icon: "js" },
+          { name: "Design Responsivo", level: 85, icon: "responsive" }
+        ],
+        design: [
+          { name: "UI/UX", level: 80, icon: "ui" },
+          { name: "Figma", level: 70, icon: "figma" },
+          { name: "Photoshop", level: 65, icon: "ps" },
+          { name: "Tipografia", level: 85, icon: "type" }
+        ],
+        additional: ["Noções de SEO", "Otimização de Performance", "Compatibilidade Entre Navegadores", "Controle de Versão (Git)", "Acessibilidade", "Animações CSS", "CSS Grid", "Flexbox"]
+      }
+    }
+  };
+
+  const t = translations[language];
+
   const skillCategories: Category[] = [
     {
-      title: "Frontend",
-      skills: [
-        { name: "HTML5", level: 95, icon: "html" },
-        { name: "CSS3", level: 90, icon: "css" },
-        { name: "JavaScript", level: 75, icon: "js" },
-        { name: "Responsive Design", level: 85, icon: "responsive" }
-      ]
+      title: t.frontend,
+      skills: t.skills.frontend
     },
     {
-      title: "Design",
-      skills: [
-        { name: "UI/UX", level: 80, icon: "ui" },
-        { name: "Figma", level: 70, icon: "figma" },
-        { name: "Photoshop", level: 65, icon: "ps" },
-        { name: "Typography", level: 85, icon: "type" }
-      ]
+      title: t.design,
+      skills: t.skills.design
     }
   ];
 
   return (
     <section id="skills" className="py-20 px-6 md:px-12 lg:px-24 bg-white/50">
       <div className="container mx-auto max-w-5xl">
-        <h2 className="section-title">My Skills</h2>
+        <h2 className="section-title">{t.title}</h2>
         
         <div className="vintage-card">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -82,11 +122,11 @@ const Skills = () => {
           
           <div className="mt-12">
             <h3 className="font-courier text-2xl font-bold text-vintage-dark-brown mb-6">
-              Additional Skills
+              {t.additionalSkills}
             </h3>
             
             <div className="flex flex-wrap gap-3">
-              {["SEO Basics", "Performance Optimization", "Cross-browser Compatibility", "Version Control (Git)", "Accessibility", "CSS Animations", "CSS Grid", "Flexbox"].map((skill, index) => (
+              {t.skills.additional.map((skill, index) => (
                 <span key={index} className="code-tag">{skill}</span>
               ))}
             </div>

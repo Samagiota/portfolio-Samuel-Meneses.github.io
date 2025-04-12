@@ -7,18 +7,18 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useLanguage } from '../pages/Index';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [language, setLanguage] = useState('en'); // 'en' for English, 'pt-BR' for Portuguese
+  const { language, setLanguage } = useLanguage();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const changeLanguage = (lang: string) => {
+  const changeLanguage = (lang: 'en' | 'pt-BR') => {
     setLanguage(lang);
-    // In a real app, we would use a context or state management to handle language throughout the app
     console.log(`Language changed to ${lang}`);
   };
 
@@ -58,7 +58,7 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-8">
-          {navItems[language as keyof typeof navItems].map((item, index) => (
+          {navItems[language].map((item, index) => (
             <a
               key={item}
               href={`#${navItems['en'][index].toLowerCase()}`} // Keep the English IDs for the href
@@ -79,7 +79,7 @@ const Header = () => {
       {isMenuOpen && (
         <div className="md:hidden py-4 px-6 bg-white/90 backdrop-blur-sm border-b border-vintage-brown/20">
           <nav className="flex flex-col space-y-4">
-            {navItems[language as keyof typeof navItems].map((item, index) => (
+            {navItems[language].map((item, index) => (
               <a
                 key={item}
                 href={`#${navItems['en'][index].toLowerCase()}`} // Keep the English IDs for the href

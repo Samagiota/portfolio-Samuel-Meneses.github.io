@@ -1,8 +1,28 @@
 
 import React from 'react';
 import { ArrowDown } from 'lucide-react';
+import { useLanguage } from '../pages/Index';
 
 const Hero = () => {
+  const { language } = useLanguage();
+
+  const translations = {
+    en: {
+      title: "Samuel Meneses",
+      subtitle: "HTML & CSS Developer | Creating Beautiful Web Experiences",
+      viewWork: "View My Work",
+      contact: "Contact Me"
+    },
+    'pt-BR': {
+      title: "Samuel Meneses",
+      subtitle: "Desenvolvedor HTML & CSS | Criando Experiências Web Bonitas",
+      viewWork: "Ver Meu Trabalho",
+      contact: "Entre em Contato"
+    }
+  };
+
+  const t = translations[language];
+
   return (
     <section 
       id="home" 
@@ -14,19 +34,19 @@ const Hero = () => {
         </div>
         
         <h1 className="font-courier text-4xl md:text-6xl font-bold text-vintage-dark-brown mb-6 typewriter">
-          Samuel Meneses
+          {t.title}
         </h1>
         
         <p className="font-oldstandard text-xl md:text-2xl text-vintage-text mb-8">
-          HTML & CSS Developer | Creating Beautiful Web Experiences
+          {t.subtitle}
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
           <a href="#projects" className="vintage-button">
-            View My Work
+            {t.viewWork}
           </a>
           <a href="#contact" className="vintage-button bg-white text-vintage-dark-brown hover:bg-vintage-accent/30">
-            Contact Me
+            {t.contact}
           </a>
         </div>
 

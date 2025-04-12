@@ -1,8 +1,40 @@
 
 import React from 'react';
 import { Mail, Github, Linkedin, MapPin } from 'lucide-react';
+import { useLanguage } from '../pages/Index';
 
 const Contact = () => {
+  const { language } = useLanguage();
+
+  const translations = {
+    en: {
+      title: "Get In Touch",
+      contactInfo: "Contact Information",
+      email: "Email",
+      location: "Location",
+      socialProfiles: "Social Profiles",
+      sendMessage: "Send Me a Message",
+      name: "Name",
+      subject: "Subject",
+      message: "Message",
+      submit: "Send Message"
+    },
+    'pt-BR': {
+      title: "Entre em Contato",
+      contactInfo: "Informações de Contato",
+      email: "Email",
+      location: "Localização",
+      socialProfiles: "Perfis Sociais",
+      sendMessage: "Envie-me uma Mensagem",
+      name: "Nome",
+      subject: "Assunto",
+      message: "Mensagem",
+      submit: "Enviar Mensagem"
+    }
+  };
+
+  const t = translations[language];
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Form submission logic would go here
@@ -12,19 +44,19 @@ const Contact = () => {
   return (
     <section id="contact" className="py-20 px-6 md:px-12 lg:px-24">
       <div className="container mx-auto max-w-5xl">
-        <h2 className="section-title">Get In Touch</h2>
+        <h2 className="section-title">{t.title}</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div className="vintage-card">
             <h3 className="font-courier text-2xl font-bold text-vintage-dark-brown mb-6">
-              Contact Information
+              {t.contactInfo}
             </h3>
             
             <div className="space-y-6">
               <div className="flex items-center">
                 <Mail size={20} className="text-vintage-brown mr-4" />
                 <div>
-                  <p className="font-courier text-sm text-vintage-brown">Email</p>
+                  <p className="font-courier text-sm text-vintage-brown">{t.email}</p>
                   <a href="mailto:sanmeneses.developer@gmail.com" className="font-oldstandard hover:text-vintage-dark-brown transition-colors">
                     sanmeneses.developer@gmail.com
                   </a>
@@ -34,7 +66,7 @@ const Contact = () => {
               <div className="flex items-center">
                 <MapPin size={20} className="text-vintage-brown mr-4" />
                 <div>
-                  <p className="font-courier text-sm text-vintage-brown">Location</p>
+                  <p className="font-courier text-sm text-vintage-brown">{t.location}</p>
                   <p className="font-oldstandard">Imperatriz, Maranhão, Brazil</p>
                 </div>
               </div>
@@ -42,7 +74,7 @@ const Contact = () => {
             
             <div className="mt-8">
               <h4 className="font-courier text-lg font-bold text-vintage-dark-brown mb-4">
-                Social Profiles
+                {t.socialProfiles}
               </h4>
               
               <div className="flex gap-4">
@@ -70,13 +102,13 @@ const Contact = () => {
           
           <div className="vintage-card">
             <h3 className="font-courier text-2xl font-bold text-vintage-dark-brown mb-6">
-              Send Me a Message
+              {t.sendMessage}
             </h3>
             
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label htmlFor="name" className="block font-courier text-sm text-vintage-brown mb-1">
-                  Name
+                  {t.name}
                 </label>
                 <input 
                   type="text" 
@@ -88,7 +120,7 @@ const Contact = () => {
               
               <div>
                 <label htmlFor="email" className="block font-courier text-sm text-vintage-brown mb-1">
-                  Email
+                  {t.email}
                 </label>
                 <input 
                   type="email" 
@@ -100,7 +132,7 @@ const Contact = () => {
               
               <div>
                 <label htmlFor="subject" className="block font-courier text-sm text-vintage-brown mb-1">
-                  Subject
+                  {t.subject}
                 </label>
                 <input 
                   type="text" 
@@ -112,7 +144,7 @@ const Contact = () => {
               
               <div>
                 <label htmlFor="message" className="block font-courier text-sm text-vintage-brown mb-1">
-                  Message
+                  {t.message}
                 </label>
                 <textarea 
                   id="message" 
@@ -123,7 +155,7 @@ const Contact = () => {
               </div>
               
               <button type="submit" className="vintage-button w-full">
-                Send Message
+                {t.submit}
               </button>
             </form>
           </div>
@@ -134,4 +166,3 @@ const Contact = () => {
 };
 
 export default Contact;
-

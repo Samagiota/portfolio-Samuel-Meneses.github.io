@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { ExternalLink, Github } from 'lucide-react';
+import { useLanguage } from '../pages/Index';
 
 type Project = {
   title: string;
@@ -53,47 +54,87 @@ const ProjectCard: React.FC<Project> = ({ title, description, tags, image, liveL
 };
 
 const Projects = () => {
-  const projects: Project[] = [
-    {
-      title: "Vintage E-commerce",
-      description: "A responsive e-commerce website with a vintage aesthetic, featuring product galleries and cart functionality.",
-      tags: ["HTML", "CSS", "Responsive"],
-      image: "https://images.unsplash.com/photo-1586880244406-556ebe35f282?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      liveLink: "#",
-      githubLink: "#"
+  const { language } = useLanguage();
+
+  const translations = {
+    en: {
+      title: "My Projects",
+      viewAll: "View All Projects",
+      projects: [
+        {
+          title: "Vintage E-commerce",
+          description: "A responsive e-commerce website with a vintage aesthetic, featuring product galleries and cart functionality.",
+          tags: ["HTML", "CSS", "Responsive"],
+          image: "https://images.unsplash.com/photo-1586880244406-556ebe35f282?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          liveLink: "#",
+          githubLink: "#"
+        },
+        {
+          title: "Portfolio Template",
+          description: "A customizable portfolio template for creative professionals with smooth animations.",
+          tags: ["HTML", "CSS", "JavaScript"],
+          image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=2555&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          liveLink: "#",
+          githubLink: "#"
+        },
+        {
+          title: "Restaurant Website",
+          description: "An elegant website for a local restaurant featuring menu, reservation system, and testimonials.",
+          tags: ["HTML", "CSS", "Responsive"],
+          image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2572&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          liveLink: "#",
+          githubLink: "#"
+        },
+      ]
     },
-    {
-      title: "Portfolio Template",
-      description: "A customizable portfolio template for creative professionals with smooth animations.",
-      tags: ["HTML", "CSS", "JavaScript"],
-      image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=2555&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      liveLink: "#",
-      githubLink: "#"
-    },
-    {
-      title: "Restaurant Website",
-      description: "An elegant website for a local restaurant featuring menu, reservation system, and testimonials.",
-      tags: ["HTML", "CSS", "Responsive"],
-      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2572&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      liveLink: "#",
-      githubLink: "#"
-    },
-  ];
+    'pt-BR': {
+      title: "Meus Projetos",
+      viewAll: "Ver Todos os Projetos",
+      projects: [
+        {
+          title: "E-commerce Vintage",
+          description: "Um site de e-commerce responsivo com estética vintage, apresentando galerias de produtos e funcionalidade de carrinho.",
+          tags: ["HTML", "CSS", "Responsivo"],
+          image: "https://images.unsplash.com/photo-1586880244406-556ebe35f282?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          liveLink: "#",
+          githubLink: "#"
+        },
+        {
+          title: "Template de Portfólio",
+          description: "Um template de portfólio personalizável para profissionais criativos com animações suaves.",
+          tags: ["HTML", "CSS", "JavaScript"],
+          image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=2555&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          liveLink: "#",
+          githubLink: "#"
+        },
+        {
+          title: "Site de Restaurante",
+          description: "Um site elegante para um restaurante local apresentando cardápio, sistema de reservas e depoimentos.",
+          tags: ["HTML", "CSS", "Responsivo"],
+          image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2572&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          liveLink: "#",
+          githubLink: "#"
+        },
+      ]
+    }
+  };
+
+  const t = translations[language];
 
   return (
     <section id="projects" className="py-20 px-6 md:px-12 lg:px-24">
       <div className="container mx-auto max-w-5xl">
-        <h2 className="section-title">My Projects</h2>
+        <h2 className="section-title">{t.title}</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+          {t.projects.map((project, index) => (
             <ProjectCard key={index} {...project} />
           ))}
         </div>
         
         <div className="text-center mt-12">
           <a href="#" className="vintage-button">
-            View All Projects
+            {t.viewAll}
           </a>
         </div>
       </div>
