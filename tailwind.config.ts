@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,18 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				vintage: {
+					'paper': '#F5F5F0',
+					'brown': '#E2D1C3',
+					'dark-brown': '#A89382',
+					'text': '#3A3A3A',
+					'accent': '#C8B6A6'
 				}
+			},
+			fontFamily: {
+				'courier': ['Courier Prime', 'monospace'],
+				'oldstandard': ['Old Standard TT', 'serif']
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,11 +96,22 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'typewriter': {
+					'0%': { width: '0%' },
+					'100%': { width: '100%' }
+				},
+				'blink': {
+					'0%': { borderColor: 'transparent' },
+					'50%': { borderColor: 'var(--vintage-dark-brown)' },
+					'100%': { borderColor: 'transparent' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'typewriter': 'typewriter 4s steps(40) 1s forwards',
+				'blink': 'blink 1s infinite'
 			}
 		}
 	},
